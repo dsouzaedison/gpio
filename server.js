@@ -11,7 +11,7 @@ app.set('view engine','ejs');
 
 app.use(express.static(__dirname + '/views'));
 app.use(function(req,res,next){
-    console.log('Request Recieved at ' + Date.now());
+    console.log('Request Recieved');
     if(app.locals.ledState){
         toggle="OFF";
     }else{
@@ -25,6 +25,7 @@ app.get('/',function(req,res){
 });
 
 app.post('/toggle',function(req,res){
+    console.log('Toggle Requested');
     if(app.locals.ledState)
     {
         app.locals.ledState=0;
